@@ -1,3 +1,5 @@
+Dbug in dili, modified CmakeList.txt and comment some other indexes.
+
 # GRE
 GRE is a benchmark suite for learned indexes and traditional indexes to measure throughput and latency with custom workload (read / write ratio) and any dataset. GRE quantifies datasets using local and global hardness, and includes a synthetic data generator to generate data with various hardness.
 

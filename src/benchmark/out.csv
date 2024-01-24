@@ -1,0 +1,2 @@
+id,read_ratio,insert_ratio,update_ratio,scan_ratio,delete_ratio,key_path,index_type,throughput,init_table_size,memory_consumption,thread_num,min,50 percentile,90 percentile,99 percentile,99.9 percentile,99.99 percentile,max,avg,seed,scan_num,latency_variance,latency_sample,data_shift,pgm,error_bound,table_size
+20240108211344,1,0,0,0,0,/home/shandian/Documents/GRE/data/covid,dili,3842230,200000,0,1,10,256,645,1000,1767,1767,1767,279.915,1866,100,78361.9,1,0,0,64,200000

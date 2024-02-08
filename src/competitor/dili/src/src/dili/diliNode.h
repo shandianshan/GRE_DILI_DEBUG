@@ -626,7 +626,7 @@ struct diliNode{
         for (int i = 0; i < fanout; ++i) {
             pairEntry &pe = pe_data[i];
             if (!is_internal() && num_nonempty == 0) {
-                cout << "i = " << i << ", fan = " << fanout << ", pe.key = " << pe.key << endl;
+                // cout << "i = " << i << ", fan = " << fanout << ", pe.key = " << pe.key << endl;
             }
             if (pe.key == -1) {
                 diliNode *child = pe.child;
@@ -742,9 +742,9 @@ struct diliNode{
         int pos = -1;
         
         for(int i=0;i<num_nonempty ;i++) {
-            cout << "k" << i << " " << keys[i] << "|" << endl; 
+            // cout << "k" << i << " " << keys[i] << "|" << endl; 
         }
-        cout << "a " << a << " b " << b << " fanout " << fanout << endl;
+        // cout << "a " << a << " b " << b << " fanout " << fanout << endl;
 
         // int last_pos = LR_PRED(a, b, last_key, fanout);
         // int final_pos = LR_PRED(a, b, final_key, fanout);
@@ -764,7 +764,7 @@ struct diliNode{
             assert (key != last_key);
             // pos = LR_PRED(a, b, key, fanout);
             pos = std::min<long long>(std::max<long long>(( node_mid_range + b * (key - node_mid_key)), 0), fanout - 1);
-            cout << "pos " << pos << endl;
+            // cout << "pos " << pos << endl;
             assert(pos >= last_pos);
 
             if (pos != last_pos) {
@@ -1177,19 +1177,19 @@ struct diliNode{
             }
         }
         if (j != num_nonempty) {
-            cout << "j = " << j << ", num_nonempty = " << num_nonempty << ", is_internal = " << is_internal() << endl;
+            // cout << "j = " << j << ", num_nonempty = " << num_nonempty << ", is_internal = " << is_internal() << endl;
             for(int i = 0; i < num_nonempty; ++i) {
                 pairEntry &pe = pe_data[i];
                 if (pe.key >= 0) {
-                    cout << "i = " << i << ", pe.key = " << pe.key << endl;
+                    // cout << "i = " << i << ", pe.key = " << pe.key << endl;
                 } else if (pe.key == -1) {
                     diliNode *child = pe.child;
                     child->collect_all_keys(keys+j);
-                    cout << "i = " << i << ", child.num_nonempty = " << child->num_nonempty << endl;
+                    // cout << "i = " << i << ", child.num_nonempty = " << child->num_nonempty << endl;
                     j += child->num_nonempty;
                 } else if (pe.key == -2) {
                     fan2Leaf *fan2child = pe.fan2child;
-                    cout << "i = " << i << ", fan2child.num_nonempty = 2" << endl;
+                    // cout << "i = " << i << ", fan2child.num_nonempty = 2" << endl;
                     keys[j++] = fan2child->k1;
                     keys[j++] = fan2child->k2;
                 }

@@ -1,6 +1,7 @@
 #include<vector>
 #include"./src/src/dili/DILI.h"
 #include"../indexInterface.h"
+#include"./src/src/utils/data_utils.h"
 #include <filesystem>
 
 template<class KEY_TYPE, class PAYLOAD_TYPE>
@@ -47,9 +48,20 @@ void diliInterface<KEY_TYPE, PAYLOAD_TYPE>::bulk_load(std::pair <KEY_TYPE, PAYLO
   }
   dili.set_mirror_dir(mirror_dir);
   
+  long last_tem = -1;
+  bool first = true;
   for (unsigned long i = 0; i < num ; i++){
     temp.first=(long)(key_value[i].first);
     temp.second=(long)(key_value[i].second);
+    if(!first){
+      if(last_tem >= temp.first){
+        std::cout << last_tem << " " << temp.first << std::endl;
+      }
+      assert(last_tem < temp.first);
+    }else{
+      first = false;
+    }
+    last_tem = temp.first;
     bulk_data.push_back(temp);
   }                                                     
   dili.bulk_load(bulk_data);
